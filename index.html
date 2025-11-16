@@ -1,578 +1,544 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Untuk Acaa ♥</title>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gombalan Bucin untuk Aca 💕</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Georgia", serif;
-      }
-
-      body {
-        background: linear-gradient(
-          -45deg,
-          #ff6b6b,
-          #ff8787,
-          #ff9999,
-          #ffb3b3,
-          #ffc7c7
-        );
-        background-size: 400% 400%;
-        animation: gradientShift 8s ease infinite;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        perspective: 1200px;
-      }
-
-      @keyframes gradientShift {
-        0% {
-          background-position: 0% 50%;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        50% {
-          background-position: 100% 50%;
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
         }
-        100% {
-          background-position: 0% 50%;
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-      }
 
-      .container {
-        text-align: center;
-        position: relative;
-        z-index: 10;
-      }
-
-      .message-container {
-        position: relative;
-        width: 100%;
-        height: 250px;
-      }
-
-      .name {
-        font-size: 6rem;
-        font-weight: bold;
-        background: linear-gradient(45deg, #ffffff, #ffe4e6, #ffffff);
-        background-size: 200% 200%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: textShimmer 3s ease infinite,
-          nameFloat 4s ease-in-out infinite;
-        text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-        opacity: 1;
-        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: absolute;
-        width: 100%;
-        letter-spacing: 8px;
-      }
-
-      @keyframes textShimmer {
-        0%,
-        100% {
-          background-position: 0% 50%;
+        h1 {
+            text-align: center;
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
         }
-        50% {
-          background-position: 100% 50%;
+
+        .gombalan-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            margin-top: 60px;
+            margin-bottom: 20px;
         }
-      }
 
-      @keyframes nameFloat {
-        0%,
-        100% {
-          transform: translateY(0px) scale(1);
+        .gombalan-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 500px;
+            opacity: 0;
+            transform: scale(0.8) translateY(30px);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
-        50% {
-          transform: translateY(-15px) scale(1.05);
+
+        .gombalan-card.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
         }
-      }
 
-      .love-message {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0) rotateY(90deg);
-        font-size: 3.5rem;
-        color: white;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 20, 100, 0.95),
-          rgba(255, 100, 150, 0.95)
-        );
-        padding: 40px 80px;
-        border-radius: 50px;
-        box-shadow: 0 25px 50px rgba(255, 20, 100, 0.6),
-          0 0 100px rgba(255, 100, 150, 0.3),
-          inset 0 2px 10px rgba(255, 255, 255, 0.3);
-        opacity: 0;
-        transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        text-shadow: 0 4px 20px rgba(255, 255, 255, 0.6);
-        backdrop-filter: blur(10px);
-        border: 3px solid rgba(255, 255, 255, 0.3);
-        font-weight: bold;
-        letter-spacing: 3px;
-      }
-
-      .love-message::before {
-        content: "";
-        position: absolute;
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
-        background: linear-gradient(45deg, #ff6b6b, #ff8787, #ff9999, #ffb3b3);
-        border-radius: 55px;
-        z-index: -1;
-        animation: borderGlow 2s ease infinite;
-      }
-
-      @keyframes borderGlow {
-        0%,
-        100% {
-          opacity: 0.5;
-          transform: scale(1);
+        .gombalan-card.exit {
+            opacity: 0;
+            transform: scale(0.8) translateY(-30px);
         }
-        50% {
-          opacity: 1;
-          transform: scale(1.02);
+
+        .gombalan-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-      }
 
-      .btn {
-        margin-top: 3rem;
-        padding: 20px 50px;
-        font-size: 1.4rem;
-        font-weight: bold;
-        color: white;
-        background: linear-gradient(
-          45deg,
-          rgba(255, 255, 255, 0.2),
-          rgba(255, 255, 255, 0.4)
-        );
-        border: 3px solid rgba(255, 255, 255, 0.8);
-        border-radius: 60px;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        outline: none;
-        backdrop-filter: blur(15px);
-        box-shadow: 0 10px 30px rgba(255, 100, 100, 0.4);
-        position: relative;
-        overflow: hidden;
-        letter-spacing: 2px;
-      }
-
-      .btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.4),
-          transparent
-        );
-        transition: left 0.5s;
-      }
-
-      .btn:hover::before {
-        left: 100%;
-      }
-
-      .btn:hover {
-        background: linear-gradient(
-          45deg,
-          rgba(255, 255, 255, 0.4),
-          rgba(255, 255, 255, 0.6)
-        );
-        transform: translateY(-8px) scale(1.08);
-        box-shadow: 0 20px 40px rgba(255, 100, 100, 0.5),
-          0 0 50px rgba(255, 255, 255, 0.3);
-        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-        border-color: rgba(255, 255, 255, 1);
-      }
-
-      .hearts {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-        top: 0;
-        left: 0;
-      }
-
-      .heart {
-        position: absolute;
-        font-size: 28px;
-        color: rgba(255, 100, 150, 0.8);
-        animation: floatUp 6s ease-in-out infinite;
-        opacity: 0;
-        text-shadow: 0 0 20px rgba(255, 50, 100, 0.8),
-          0 0 40px rgba(255, 100, 150, 0.4);
-        transition: all 0.8s ease;
-      }
-
-      .present {
-        width: 250px;
-        height: 250px;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.95),
-          rgba(255, 240, 245, 0.95)
-        );
-        border-radius: 15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotateX(45deg) rotateY(-10deg);
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3),
-          0 0 50px rgba(255, 100, 150, 0.2),
-          inset 0 5px 15px rgba(255, 255, 255, 0.5);
-        opacity: 0;
-        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        border: 2px solid rgba(255, 100, 150, 0.3);
-      }
-
-      .present-lid {
-        width: 250px;
-        height: 60px;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 100, 150, 0.95),
-          rgba(255, 150, 180, 0.95)
-        );
-        position: absolute;
-        top: -60px;
-        border-radius: 15px 15px 5px 5px;
-        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 10px 30px rgba(255, 100, 150, 0.4),
-          inset 0 2px 10px rgba(255, 255, 255, 0.3);
-        border: 2px solid rgba(255, 100, 150, 0.5);
-      }
-
-      .present-ribbon-v {
-        width: 25px;
-        height: 250px;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 200, 220, 0.95),
-          rgba(255, 150, 180, 0.95)
-        );
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        box-shadow: 0 0 20px rgba(255, 100, 150, 0.3);
-        border-radius: 12px;
-      }
-
-      .present-ribbon-h {
-        width: 250px;
-        height: 25px;
-        background: linear-gradient(
-          90deg,
-          rgba(255, 200, 220, 0.95),
-          rgba(255, 150, 180, 0.95)
-        );
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        box-shadow: 0 0 20px rgba(255, 100, 150, 0.3);
-        border-radius: 12px;
-      }
-
-      .present-bow {
-        width: 60px;
-        height: 40px;
-        background: linear-gradient(
-          45deg,
-          rgba(255, 50, 100, 0.95),
-          rgba(255, 100, 150, 0.95)
-        );
-        position: absolute;
-        top: -80px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-        box-shadow: 0 5px 20px rgba(255, 50, 100, 0.5);
-      }
-
-      .sparkles {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-      }
-
-      .sparkle {
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 50%;
-        animation: sparkleAnim 2s ease-in-out infinite;
-      }
-
-      @keyframes sparkleAnim {
-        0%,
-        100% {
-          opacity: 0;
-          transform: scale(0) rotate(0deg);
+        .gombalan-card:hover::before {
+            opacity: 1;
         }
-        50% {
-          opacity: 1;
-          transform: scale(1.5) rotate(180deg);
+
+        .gombalan-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
-      }
 
-      @keyframes floatUp {
-        0% {
-          transform: translateY(0) rotate(0deg) scale(1);
-          opacity: 0;
+        .gombalan-card.last {
+            background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
         }
-        10% {
-          opacity: 1;
+
+        .gombalan-card.last.active {
+            animation: dramaticEntrance 1s ease forwards;
         }
-        90% {
-          opacity: 1;
+
+        .gombalan-text {
+            color: white;
+            font-size: 1.3em;
+            line-height: 1.8;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
         }
-        100% {
-          transform: translateY(-100vh) rotate(360deg) scale(0.5);
-          opacity: 0;
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
         }
-      }
 
-      .show {
-        opacity: 1 !important;
-        transform: translate(-50%, -50%) scale(1) rotateY(0deg) !important;
-      }
-
-      .hidden {
-        opacity: 0 !important;
-        pointer-events: none;
-        transform: scale(0.8) !important;
-      }
-
-      .open-lid {
-        transform: translateY(-150px) rotateX(-70deg) rotateZ(10deg) !important;
-        filter: drop-shadow(0 0 30px rgba(255, 50, 100, 0.8));
-        animation: lidFloat 2s ease-in-out infinite;
-      }
-
-      @keyframes lidFloat {
-        0%,
-        100% {
-          transform: translateY(-150px) rotateX(-70deg) rotateZ(10deg);
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            font-weight: 600;
         }
-        50% {
-          transform: translateY(-160px) rotateX(-65deg) rotateZ(8deg);
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
         }
-      }
 
-      .explosion-heart {
-        animation: explode 3s ease-out forwards !important;
-      }
-
-      @keyframes explode {
-        0% {
-          transform: scale(0);
-          opacity: 1;
+        .btn:active:not(:disabled) {
+            transform: translateY(0);
         }
-        50% {
-          opacity: 1;
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
-        100% {
-          transform: scale(2) rotate(720deg);
-          opacity: 0;
+
+        .btn.prev-btn {
+            background: linear-gradient(135deg, #a8a8a8 0%, #7a7a7a 100%);
         }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="hearts" id="hearts"></div>
-    <div class="sparkles" id="sparkles"></div>
 
-    <div class="container">
-      <div class="message-container">
-        <h1 class="name" id="name">Acaa</h1>
-        <div class="present" id="present">
-          <div class="present-lid" id="lid"></div>
-          <div class="present-ribbon-v"></div>
-          <div class="present-ribbon-h"></div>
-          <div class="present-bow"></div>
-        </div>
-        <div class="love-message" id="loveMessage">
-          I Love You Forever
-          <span style="color: #ff0066; font-size: 4rem">♥</span>
-        </div>
-      </div>
-
-      <button class="btn" id="btn">Open My Heart ♥</button>
-    </div>
-
-    <script>
-      const btn = document.getElementById("btn");
-      const name = document.getElementById("name");
-      const loveMessage = document.getElementById("loveMessage");
-      const present = document.getElementById("present");
-      const lid = document.getElementById("lid");
-      const heartsContainer = document.getElementById("hearts");
-      const sparklesContainer = document.getElementById("sparkles");
-
-      // Create floating hearts background
-      function createBackgroundHearts() {
-        for (let i = 0; i < 30; i++) {
-          const heart = document.createElement("div");
-          heart.classList.add("heart");
-          heart.innerHTML = "♥";
-          heart.style.left = Math.random() * 100 + "vw";
-          heart.style.top = "110vh";
-          heart.style.animationDelay = Math.random() * 8 + "s";
-          heart.style.fontSize = Math.random() * 15 + 15 + "px";
-          heart.style.opacity = "0.7";
-          heartsContainer.appendChild(heart);
+        .counter {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-top: 20px;
+            font-weight: 600;
         }
-      }
 
-      // Create sparkles
-      function createSparkles() {
-        for (let i = 0; i < 50; i++) {
-          const sparkle = document.createElement("div");
-          sparkle.classList.add("sparkle");
-          sparkle.style.left = Math.random() * 100 + "vw";
-          sparkle.style.top = Math.random() * 100 + "vh";
-          sparkle.style.animationDelay = Math.random() * 3 + "s";
-          sparklesContainer.appendChild(sparkle);
+        @keyframes dramaticEntrance {
+            0% {
+                transform: scale(0.5) rotate(-15deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.15) rotate(5deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
         }
-      }
 
-      createBackgroundHearts();
-      createSparkles();
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
 
-      // Add continuous heart generation
-      setInterval(createBackgroundHearts, 3000);
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 4s ease-in infinite;
+            opacity: 0;
+        }
 
-      btn.addEventListener("click", function () {
-        // Add click sound effect (visual feedback)
-        btn.style.transform = "scale(0.95)";
-        setTimeout(() => (btn.style.transform = ""), 100);
+        @keyframes float {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-1000px) rotate(360deg);
+            }
+        }
 
-        // Hide name and button with beautiful transition
-        name.style.transform = "translateY(-50px) scale(0.8) rotateX(90deg)";
-        name.style.opacity = "0";
-        btn.classList.add("hidden");
+        .hidden {
+            display: none;
+        }
 
-        // Show present with dramatic entrance
-        setTimeout(() => {
-          present.style.opacity = "1";
-          present.style.transform =
-            "translate(-50%, -50%) rotateX(0deg) rotateY(0deg) scale(1.1)";
+        .start-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
 
-          // Pulse effect for present
-          setTimeout(() => {
-            present.style.transform =
-              "translate(-50%, -50%) rotateX(0deg) rotateY(0deg) scale(1)";
-          }, 200);
-        }, 300);
+        .start-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
 
-        // After delay, open the present dramatically
-        setTimeout(() => {
-          lid.classList.add("open-lid");
+        .start-title {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
 
-          // Create mini explosion of sparkles
-          for (let i = 0; i < 20; i++) {
-            const sparkle = document.createElement("div");
-            sparkle.style.position = "absolute";
-            sparkle.style.left = "50%";
-            sparkle.style.top = "50%";
-            sparkle.style.width = "6px";
-            sparkle.style.height = "6px";
-            sparkle.style.background = "rgba(255, 255, 255, 0.9)";
-            sparkle.style.borderRadius = "50%";
-            sparkle.style.pointerEvents = "none";
-            sparkle.style.animation = `explode ${
-              Math.random() * 2 + 1
-            }s ease-out forwards`;
-            document.body.appendChild(sparkle);
+        .start-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.5em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
 
-            setTimeout(() => sparkle.remove(), 3000);
-          }
+        .start-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
 
-          // After lid opens, show love message and create heart explosion
-          setTimeout(() => {
-            present.classList.add("hidden");
-            loveMessage.classList.add("show");
+        .start-btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
 
-            // Create massive heart explosion
-            for (let i = 0; i < 150; i++) {
-              const heart = document.createElement("div");
-              heart.innerHTML = "♥";
-              heart.style.position = "absolute";
-              heart.style.left = "50%";
-              heart.style.top = "50%";
-              heart.style.fontSize = Math.random() * 30 + 15 + "px";
-              heart.style.color = `hsl(${Math.random() * 60 + 320}, 100%, ${
-                Math.random() * 30 + 60
-              }%)`;
-              heart.style.pointerEvents = "none";
-              heart.style.textShadow = "0 0 20px currentColor";
-              heart.style.zIndex = "1000";
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
 
-              const angle = (Math.PI * 2 * i) / 150;
-              const velocity = Math.random() * 300 + 100;
-              const finalX = Math.cos(angle) * velocity;
-              const finalY = Math.sin(angle) * velocity;
-
-              heart.style.animation = "none";
-              heart.style.transition = `all ${
-                Math.random() * 2 + 2
-              }s cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
-
-              heartsContainer.appendChild(heart);
-
-              setTimeout(() => {
-                heart.style.transform = `translate(${finalX}px, ${finalY}px) rotate(${
-                  Math.random() * 720
-                }deg) scale(${Math.random() * 0.5 + 0.5})`;
-                heart.style.opacity = "0";
-              }, 50);
-
-              setTimeout(() => heart.remove(), 4000);
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+                top: 25px;
+            }
+            
+            .gombalan-text {
+                font-size: 1.1em;
             }
 
-            // Add pulsing effect to love message
-            setInterval(() => {
-              loveMessage.style.transform = "translate(-50%, -50%) scale(1.05)";
-              setTimeout(() => {
-                loveMessage.style.transform = "translate(-50%, -50%) scale(1)";
-              }, 200);
-            }, 2000);
-          }, 1200);
-        }, 800);
-      });
+            .gombalan-card {
+                padding: 25px;
+            }
 
-      // Add mouse move effect for interactive sparkles
-      document.addEventListener("mousemove", function (e) {
-        if (Math.random() < 0.1) {
-          const sparkle = document.createElement("div");
-          sparkle.classList.add("sparkle");
-          sparkle.style.left = e.clientX + "px";
-          sparkle.style.top = e.clientY + "px";
-          sparkle.style.pointerEvents = "none";
-          document.body.appendChild(sparkle);
+            .btn {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
 
-          setTimeout(() => sparkle.remove(), 2000);
+            .gombalan-wrapper {
+                margin-top: 50px;
+            }
+
+            .start-title {
+                font-size: 2em;
+                padding: 0 20px;
+                text-align: center;
+            }
+
+            .start-btn {
+                padding: 15px 40px;
+                font-size: 1.2em;
+            }
         }
-      });
+    </style>
+</head>
+<body>
+    <div class="start-screen" id="startScreen">
+        <div class="start-title">💕 Pesan Spesial untuk Aca 💕</div>
+        <button class="start-btn" onclick="startExperience()">Mulai 💖</button>
+    </div>
+
+    <!-- Hidden YouTube Player -->
+    <div id="player" style="display: none;"></div>
+
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <h1>💕 Untuk Aca 💕</h1>
+        
+        <div class="gombalan-wrapper">
+            <div class="gombalan-card" id="currentCard" onclick="createHeart(event)">
+                <div class="gombalan-text" id="cardText">
+                    Sinyal ku 4G, hatiku 4U 📱💖
+                </div>
+            </div>
+        </div>
+
+        <div class="counter" id="counter">1 / 7</div>
+
+        <div class="controls">
+            <button class="btn prev-btn" id="prevBtn" onclick="prevCard()" disabled>
+                ← Sebelumnya
+            </button>
+            <button class="btn" id="nextBtn" onclick="nextCard()">
+                Lanjut 💕 →
+            </button>
+        </div>
+    </div>
+
+    <!-- Load YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script>
+        let player;
+
+        // Load YouTube IFrame API
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player("player", {
+                height: "0",
+                width: "0",
+                videoId: "CgjknaWVChY",
+                playerVars: {
+                    autoplay: 0,
+                    controls: 0,
+                    showinfo: 0,
+                    modestbranding: 1,
+                    rel: 0,
+                    iv_load_policy: 3,
+                    start: 9, // Start at 9 seconds
+                    loop: 1,
+                    playlist: "CgjknaWVChY" // Required for loop to work
+                },
+                events: {
+                    onReady: onPlayerReady,
+                    onStateChange: onPlayerStateChange
+                },
+            });
+        }
+
+        // YouTube Player Ready
+        function onPlayerReady(event) {
+            console.log("YouTube Player is ready!");
+        }
+
+        // Handle player state changes (for looping)
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                player.seekTo(9);
+                player.playVideo();
+            }
+        }
+
+        const gombalan = [
+            "Sinyal ku 4G, hatiku 4U 📱💖",
+            "Kemarin sih pengen minum kopi, eh malah Aca yang begadang di hati aku ☕💭",
+            "Allahumma lakasumtu... I can't stop thinking about you 🤲✨",
+            "Apa bedanya Aca ama bintang? 🌟<br>Kalau bintang cantiknya di malam hari, kalau Aca setiap hari 💫",
+            "Kenapa bahasa Indonesia 'hidup' itu 'live'? 🤔<br>Soalnya kalau kamu itu 'love' 💕",
+            "Kata ilmuwan, gravitasi itu bikin semua jatuh ke bumi 🌍<br>Tapi kenapa aku malah jatuhnya ke kamu? 🪐💘",
+            "I love your eyes 👀💖<br>But I love my eyes more...<br>Because I can see yours ✨😍"
+        ];
+
+        let currentIndex = 0;
+        const card = document.getElementById('currentCard');
+        const cardText = document.getElementById('cardText');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const counter = document.getElementById('counter');
+        const startScreen = document.getElementById('startScreen');
+
+        function startExperience() {
+            // Fade out start screen first
+            startScreen.classList.add('fade-out');
+            
+            setTimeout(() => {
+                startScreen.style.display = 'none';
+                // Show first card
+                card.classList.add('active');
+                
+                // Play music from YouTube after a short delay
+                setTimeout(() => {
+                    if (player && typeof player.seekTo === 'function') {
+                        player.seekTo(9);
+                        player.playVideo();
+                    }
+                }, 300);
+            }, 500);
+        }
+
+        function updateCard() {
+            // Exit animation
+            card.classList.add('exit');
+            
+            setTimeout(() => {
+                // Update content
+                cardText.innerHTML = gombalan[currentIndex];
+                
+                // Check if last card
+                if (currentIndex === gombalan.length - 1) {
+                    card.classList.add('last');
+                    card.onclick = function(e) { createManyHearts(e); };
+                } else {
+                    card.classList.remove('last');
+                    card.onclick = function(e) { createHeart(e); };
+                }
+                
+                // Remove exit and prepare for entrance
+                card.classList.remove('exit');
+                card.classList.remove('active');
+                
+                // Entrance animation
+                setTimeout(() => {
+                    card.classList.add('active');
+                }, 50);
+            }, 300);
+
+            // Update counter
+            counter.textContent = `${currentIndex + 1} / ${gombalan.length}`;
+
+            // Update button states
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === gombalan.length - 1;
+            
+            if (currentIndex === gombalan.length - 1) {
+                nextBtn.textContent = "Selesai 💖";
+            } else {
+                nextBtn.textContent = "Lanjut 💕 →";
+            }
+        }
+
+        function nextCard() {
+            if (currentIndex < gombalan.length - 1) {
+                currentIndex++;
+                updateCard();
+            }
+        }
+
+        function prevCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCard();
+            }
+        }
+
+        function createHeart(event) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = event.clientX + 'px';
+            heart.style.top = event.clientY + 'px';
+            
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        function createManyHearts(event) {
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '💖';
+                    heart.style.left = (event.clientX + Math.random() * 150 - 75) + 'px';
+                    heart.style.top = (event.clientY + Math.random() * 150 - 75) + 'px';
+                    heart.style.fontSize = (Math.random() * 25 + 15) + 'px';
+                    
+                    document.getElementById('hearts').appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+                }, i * 80);
+            }
+        }
+
+        // Auto create random hearts
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = Math.random() > 0.5 ? '💕' : '💖';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }, 2000);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+                nextCard();
+            } else if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+                prevCard();
+            }
+        });
     </script>
-  </body>
+</body>
+
 </html>
